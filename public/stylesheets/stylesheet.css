@@ -1,0 +1,52 @@
+html {
+  height: 100%;
+}
+body {
+  background-image: url(http://spsmw.org/wp-content/uploads/2013/01/scrabble.jpg);
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: verdana cursive;
+  height: 100%;
+}
+
+/*h1 {
+  text-shadow: 4px white;
+}*/
+a {
+  text-decoration: none;
+  color: #eee;
+}
+nav {
+  text-align: center;
+  line-height: 3.5rem;
+  background-color: black;
+  color: #eee;
+  font-size: 2rem;
+  font-weight: 300;
+  width: 100%;
+  display: inline-block;
+}
+
+.floatleft {
+  float: left;
+  width: 30%;
+}
+
+.floatright {
+  float: right;
+  width: 30%;
+}
+
+.body-tint {
+  z-index: 1;
+  background-color: rgb(75, 75, 75);
+  background-color: rgba(75, 75, 75, 0.5);
+  color: #eee;
+  margin: 8%;
+  padding: 5%;
+}
+
+h1, h2 {
+  text-align: center;
+}
