@@ -1,0 +1,13 @@
+<div class = "body-tint">
+  <%unless params.empty? %>
+ <h1>"<%= params["word_entered"] %>" is worth <%= params["score_earned"] %> points.
+ </h1>
+ <%end%>
+
+<form action="" method="post" accept-charset="utf-8">
+  <label for="word_entered">Enter your word:</label>
+  <input type="text" name="word_entered" value="" id="word_entered">
+
+  <input type="submit" value="Submit">
+</form>
+</div>
