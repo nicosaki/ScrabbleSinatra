@@ -31,11 +31,14 @@ nav {
 .floatleft {
   float: left;
   width: 30%;
+  text-align: center;
 }
 
 .floatright {
   float: right;
   width: 30%;
+  text-align: center;
+
 }
 
 .body-tint {

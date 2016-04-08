@@ -7,7 +7,7 @@ require_relative 'lib/scoring'
 module Scrabble
   MAXIMUM_NUMBER_OF_LETTERS = 7
 
-  class ScrabbleApp < Sinatra::Base #this or Scoring/Player??
+  class ScrabbleApp < Sinatra::Base
     get '/' do
       erb :index
     end
