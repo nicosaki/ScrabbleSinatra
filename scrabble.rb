@@ -17,8 +17,8 @@ module Scrabble
     end
 
     post '/score' do
-      @new_score = Scoring.score(params["word_entered"]) #makes score
-      params["score_earned"] = @new_score
+      (params["word_entered"] = "something") if params["word_entered"] == ""
+      @new_score = Scoring.score(params["word_entered"]) #should be hash {"word" => [letters], [scores], total}
       erb :score
     end
 
