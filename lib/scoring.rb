@@ -10,6 +10,17 @@ class Scoring
       "q"=>10, "r"=>1, "s"=>1, "t"=>1, "u"=>1, "v"=>4, "w"=>4, "x"=>8, "y"=>4,
       "z"=>10}
 
+      def self.letter_by_letter(word)
+        letters = word.chars
+        letter_array = []
+        letter_score_array = []
+        letters.each do |letter|
+          letter_array << letter
+          letter_score_array << LETTER_SCORES[letter].to_s
+        end
+        return [letter_array, letter_score_array] #array of letters, equivalent array of scores INDEX TO MATCH
+      end
+
 
       def self.score(word) # takes a string
         return 0 if word.empty? # empty string/pass
@@ -17,15 +28,18 @@ class Scoring
         score = 0
 
         #Add bonus for word_length corner case.
-        score = 50 if word.length == Scrabble::MAXIMUM_NUMBER_OF_LETTERS
+        score = 50 if word.length == 7
 
         split_word = word.downcase.split('') # downcase for comparing
 
         split_word.each do |letter|
           score += LETTER_SCORES[letter]
         end
-
-        return score
+        hash = {}
+        by_letters = self.letter_by_letter(word)
+        by_letters << score
+        hash[word] = by_letters
+        return  hash #hash {word: [letters][scores]}
       end
 
     def self.score_many(words)
@@ -33,9 +47,10 @@ class Scoring
       words = words.split(" ")
       scores_hash = {}
       words.each do |word|
-        scores_hash[word] = self.score(word)
+        # scores_hash[word] =
+        # label = word + "_by_letter"
+        scores_hash[word] = self.score(word)[word] #hash[word_by_letter] = [[letters], [scores]]
       end
-      p scores_hash
       return scores_hash
     end
 

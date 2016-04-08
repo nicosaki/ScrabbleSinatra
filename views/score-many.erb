@@ -1,10 +1,14 @@
 <div class = "body-tint">
-<h1><% if params["scores_earned"] != nil %>
-  <% params["scores_earned"].each do |word, score| %>
-    <%= word.downcase %> is worth <%= score %>
+<h1><% if params["words_entered"] != nil %>
+  <% @score_hash.each do |word, score_arrays| %>
+    <strong><%= word.downcase %></strong> is worth <%= score_arrays[2] %> points.
+    <% score_arrays[0].each_index do |index| %>
+     <%=score_arrays[0][index]%> = <%= score_arrays[1][index]%>,
+      <%end%>
     <br />
   <%end%>
   <%end%>
+
 </h1>
 <h2>Enter words to be scored in the box below seperated by spaces</h2>
 <form action="" method="post" accept-charset="utf-8">

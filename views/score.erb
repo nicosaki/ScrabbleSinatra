@@ -1,8 +1,19 @@
 <div class = "body-tint">
+  <!-- <%hash = params["score_earned"]%> -->
   <%unless params.empty? %>
- <h1>"<%= params["word_entered"] %>" is worth <%= params["score_earned"] %> points.
- </h1>
- <%end%>
+ <h1>
+   "<strong><%= params["word_entered"] %></strong>" is worth <%= @new_score[params["word_entered"]][2] %> points. </h1>
+   <h2><% @new_score.each do |word, score_arrays| %>
+     <% score_arrays[0].each_index do |index| %>
+      <%=score_arrays[0][index]%> = <%= score_arrays[1][index]%>,
+       <%end%>
+     <br />
+   <%end%>
+   </h2>
+ <div class = "individual-letters">
+ </div>
+ </div>
+<% end %>
 
 <form action="" method="post" accept-charset="utf-8">
   <label for="word_entered">Enter your word:</label>

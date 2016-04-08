@@ -28,7 +28,6 @@ module Scrabble
 
     post '/score-many' do
       @score_hash = Scoring.score_many(params["words_entered"]) #makes score
-      params["scores_earned"] = @score_hash
       erb :'score-many'
     end
 
